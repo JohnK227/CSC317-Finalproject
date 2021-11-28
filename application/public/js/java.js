@@ -1,0 +1,1 @@
+var passwordu = document.getElementById

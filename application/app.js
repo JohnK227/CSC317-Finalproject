@@ -11,7 +11,7 @@ const usersRouter = require("./routes/users");
 const app = express();
 
 app.engine(
-  "hbs",
+  "hbs", 
   handlebars({
     layoutsDir: path.join(__dirname, "views/layouts"), //where to look for layouts
     partialsDir: path.join(__dirname, "views/partials"), // where to look for partials
