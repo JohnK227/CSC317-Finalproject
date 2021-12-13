@@ -33,23 +33,34 @@ fetch(url)
 
 
 
-    document.getElementById('container').addEventListener('click', disappear);
     
-    var i = 0;
-function disappear(event) {
-        let hffhgj = event.target.getAttribute('id');
-        let element = document.getElementById('container');
-        let op = 1;
-        let timer = setInterval(function() {
-            if (op <=0.5) {
-                element.remove();
-                number--;
-                clearInterval(timer);
-                
-            }
-            
-            op -= 0.1;
-        });
-    }
+    
 
-    
+
+document.body.addEventListener("mousedown", function(e) {
+    num = num - 1;
+
+        setTimeout(() => {
+            
+            let currentOpacity = 1.0;
+            let timer = setInterval(() => {
+                 id = e.target.id;
+                if (currentOpacity < 0.05){
+                    clearInterval(timer);
+                    
+                        console.log(e.target.id)
+                        
+                        if (e.target.id == 'container' || e.target.id == 'num') {
+                
+                        } else {
+                            document.getElementById(e.target.id).outerHTML = ""
+                        }
+                  
+                }
+                currentOpacity = currentOpacity - 0.05;
+                e.target.id.style.opacity = currentOpacity;
+            }, 5);
+        },4000);
+
+    }, false)
+        

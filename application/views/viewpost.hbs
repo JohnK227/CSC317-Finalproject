@@ -5,36 +5,60 @@
         </h1>
     </header>
 
-    <form>
+    <form style = "position: absol">
         <section>
-            <b>Name of Image</b>
+            <h2>Title: {{currentPost.title}}</h2>
         </section>
 
-        <div style="height: 100px;">
-        </div>
+        
 
 
         <section>
-            <b>Image Author</b>
+            <b>Posted By: {{currentPost.username}}</b>
             <div></div>
         </section>
 
-        <div style="height: 100px;">
+        <div style="height: 20px;">
         </div>
 
-
         <section>
-            <b>Time of Creation</b>
+            <b>At: {{currentPost.created}}</b>
             <div></div>
         </section>
 
-        <div style="height: 100px;">
+        <div style="height: 20px;">
         </div>
 
         <section>
-            <b>Image</b>
-            <br />
-            <img src="Images/Trixx.jpeg" alt="This image is not available" sizes="50px">
+            <b>Description: {{currentPost.description}}</b>
+            <div></div>
+        </section>
+
+        <section>
+            <img style ="width:40%"src="/{{currentPost.photopath}}" alt="This image is not available" sizes="50px">
         </section>
 
     </form>
+    <button style="float:right" style="bottom:30px" style="height: 30px;" style="width: 30px" id="comment-box"></button>
+
+    <div id ="comment-container">
+        <div id = "message">
+{{#each currentPost.comment}}
+{{> comment this}}
+{{/each}}
+        </div>
+        <textarea  id="comment-box-text" placeholder="comment"></textarea>
+        
+    </div>
+    
+
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.getElementById('comment-box').onclick = (event) => {
+            let commentText = document.getElementById('comment-box-text').value;
+        }
+        }))
+    })
+</script>

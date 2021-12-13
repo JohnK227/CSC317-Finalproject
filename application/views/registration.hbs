@@ -1,3 +1,5 @@
+<script src="../routes/registration.js"></script>
+
 <div id="content">
     <header>
         <h1>
@@ -6,27 +8,40 @@
     </header>
 
     <div>
-        <form id="icey">
+        <form id="icey" method="POST" action ="/users/register" enctype = "application/x-www-form-urlencoded">
             <br />
+
+            <label>Username:</label>
+            <br />
+
+            <input name="username" type="text" required>
+            <br />
+
             <label>Email:</label>
             <br />
-            <input type="email" required>
+
+            <input name="email" type="email">
             <br />
-            <label id="passwordA">Password:</label>
+
+            <label >Password:</label>
             <br />
-            <input type="password">
+
+            <input id="passwordA" name="password" type="password">
             <br />
-            <label id="passwordD">Confirm Password:</label>
+
+            <label >Confirm Password:</label>
             <br />
-            <input id="passwordD1" type="password">
+
+            <input id="passwordD" type="password">
             <br />
+
             <label>Confirm you are 13 years of age or older</label>
             <input type="checkbox" required>
 
             <br />
 
             <label>I accept the </label>
-            <a href="#">TOS and Privacy Rules</a>
+            <a href="#" style = "color: white">TOS and Privacy Rules</a>
             <input id="box" type="checkbox" required>
 
 
@@ -56,3 +71,5 @@
             <label id="1" class="invalid">Passwords Match</label>
         </ul>
     </div>
+
+    <script src="../public/js/registration.js"></script>

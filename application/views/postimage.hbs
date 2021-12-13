@@ -2,23 +2,24 @@
     <h1>Post Image</h1>
 </header>
 
-<form>
+<form method="POST" enctype="multipart/form-data" 
+action="/posts/createPost">
 
     <label>Post Title:</label>
     <br />
-    <input type="text">
+    <input type="text" name = "title">
     <br />
-    <label>Post Description:</label>
+    <label >Post Description:</label>
     <br />
-    <input type="text">
+    <input type="text" name = "description" >
     <br />
     <br />
-    <input type="file">
+    <input type="file"name = "submitImage">
     <br />
 
-    <input type="checkbox">
+    <input required type="checkbox">
     </label> I accept the
-    <a href="#">Acceptable use policy for uploading images</a>
+    <a href="#" style = "color:white">Acceptable use policy for uploading images</a>
 
     <br />
     <button type=submit>Submit Image</buttontype></button>
