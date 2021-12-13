@@ -18,12 +18,68 @@ const checkEmail = (email) => {
 
 
 const registerValidator = (req, res, next) => {
-    
+    let username = req.body.username;
+    let password = req.body.password;
+    let email = req.body.email;
+    if(!checkUsername(username)){
+        res.flash('invalid')
+        req.session.save(err => {
+            res.redirect("/registration")
+        })
+    }else{
+        next();
+    }
+
+    if(!checkPassword(password)){
+        res.flash('invalid')
+        req.session.save(err => {
+            res.redirect("/registration")
+        })
+    }else{
+        next();
+    }
+
+    if(!checkemail(email)){
+        res.flash('invalid')
+        req.session.save(err => {
+            res.redirect("/registration")
+        })
+    }else{
+        next();
+    }
     
 }
 
 const loginValidator = (req, res, next) => {
-    
+    let username = req.body.username;
+    let password = req.body.password;
+    let email = req.body.email;
+    if(!checkUsername(username)){
+        res.flash('invalid')
+        req.session.save(err => {
+            res.redirect("/registration")
+        })
+    }else{
+        next();
+    }
+
+    if(!checkPassword(password)){
+        res.flash('invalid')
+        req.session.save(err => {
+            res.redirect("/registration")
+        })
+    }else{
+        next();
+    }
+
+    if(!checkemail(email)){
+        res.flash('invalid')
+        req.session.save(err => {
+            res.redirect("/registration")
+        })
+    }else{
+        next();
+    }
     
 }
 

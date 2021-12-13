@@ -3,13 +3,14 @@ var router = express.Router();
 var isLoggedIn = require('../middleware/routeprotectors').userLoggedIn
 const {getRecentPosts, getPostById} = require('../middleware/postsMiddleware')
 const {getCommentsByPostId} = require('../middleware/postsMiddleware')
+const { registerValidator, loginValidator } = require('../middleware/validation')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('entry', { title: 'CSC 317 App', name:"John King" });
 });
 
-router.get('/login', (req,res,next) => {
+router.get('/login', loginValidator, (req,res,next) => {
   res.render('login');
 });
 
@@ -18,7 +19,7 @@ router.get('/home', getRecentPosts, (req,res,next) => {
 });
 
 
-router.get('/registration', (req,res,next) => {
+router.get('/registration', registerValidator, (req,res,next) => {
   res.render('registration');
 });
 
