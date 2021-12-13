@@ -21,7 +21,7 @@ var storage = multer.diskStorage({
 
 var uploader = multer({ storage: storage });
 
-router.get('/search', (req, res, next) => {
+router.get('/search', async (req, res, next) => {
     try {
         let searchTerm = req.query.search;
         if (!searchTerm) {
@@ -31,15 +31,14 @@ router.get('/search', (req, res, next) => {
                 results: []
             });
         } else {
-            let results = PostModel.search(searchTerm)
+            let results = await PostModel.search(searchTerm)
             if (results.length) {
                 res.send({
-                    resultsStatus: "info",
                     message: `${results.length} results found`,
                     results: results
                 });
             } else {
-                let results = PostModel.getNRecentPosts(8);
+                let results = await PostModel.getNRecentPosts(8);
                 res.send({
                     message: "none results in found",
                     results: results
