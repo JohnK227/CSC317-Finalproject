@@ -5,13 +5,13 @@ const checkUsername = (username) => {
 }
 
 const checkPassword = (password) => {
-    let passwordChecker = /^\D\w\d{2,}$/;
+    let passwordChecker = /^\D{2,}$/;
         return passwordChecker.test(password);
 
 }
 
-const checkEmail = (email) => {
-    let emailChecker = /^\D\w\W{2,}$/;
+const checkemail = (email) => {
+    let emailChecker = /^\D{2,}$/;
         return emailChecker.test(email);
 
 }
@@ -22,7 +22,7 @@ const registerValidator = (req, res, next) => {
     let password = req.body.password;
     let email = req.body.email;
     if(!checkUsername(username)){
-        res.flash('invalid')
+        req.flash('error', 'invalid')
         req.session.save(err => {
             res.redirect("/registration")
         })
@@ -31,7 +31,7 @@ const registerValidator = (req, res, next) => {
     }
 
     if(!checkPassword(password)){
-        res.flash('invalid')
+        req.flash('error', 'invalid password')
         req.session.save(err => {
             res.redirect("/registration")
         })
@@ -40,7 +40,7 @@ const registerValidator = (req, res, next) => {
     }
 
     if(!checkemail(email)){
-        res.flash('invalid')
+        req.flash('error', 'invalid email')
         req.session.save(err => {
             res.redirect("/registration")
         })
@@ -55,7 +55,7 @@ const loginValidator = (req, res, next) => {
     let password = req.body.password;
     let email = req.body.email;
     if(!checkUsername(username)){
-        res.flash('invalid')
+        req.flash('invalid')
         req.session.save(err => {
             res.redirect("/registration")
         })
@@ -64,7 +64,7 @@ const loginValidator = (req, res, next) => {
     }
 
     if(!checkPassword(password)){
-        res.flash('invalid')
+        req.flash('invalid')
         req.session.save(err => {
             res.redirect("/registration")
         })
@@ -73,7 +73,7 @@ const loginValidator = (req, res, next) => {
     }
 
     if(!checkemail(email)){
-        res.flash('invalid')
+        req.flash('invalid')
         req.session.save(err => {
             res.redirect("/registration")
         })

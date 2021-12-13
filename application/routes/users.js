@@ -22,7 +22,7 @@ router.get('/', function (req, res, next) {
   res.send('respond with a resource');
 });
 
-router.post('/register', (req, res, next) => {
+router.post('/register', registerValidator, (req, res, next) => {
 
   let username = req.body.username;
   let email = req.body.email;
@@ -77,7 +77,7 @@ router.post('/register', (req, res, next) => {
 })
 
 
-router.post('/login', (req, res, next) => {
+router.post('/login', loginValidator, (req, res, next) => {
 
   let username = req.body.username;
   let password = req.body.password;
