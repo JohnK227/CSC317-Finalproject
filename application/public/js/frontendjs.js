@@ -56,7 +56,7 @@ function createCard(postData) {
     <img class = "card-image" src="${postData.thumbnail}" alt="image">
     <div id="photo" class = "card-body">
         <p class = "card-title">${postData.title}</p>
-<a href="/posts/${postData.id}" class = "anchor-buttons" style = "color: rgb(249, 203, 122">Details</a>
+<a href="/post/${postData.id}" class = "anchor-buttons" style = "color: rgb(249, 203, 122">Details</a>
         <p class = "card-text">${postData.description}</p>
     </div>
 </div>`;
